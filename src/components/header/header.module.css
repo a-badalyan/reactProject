@@ -1,0 +1,15 @@
+#header {
+  grid-area: header;
+  background-color: #0067A2;
+  text-align: center;
+  font-size: 30px;
+  font-style: italic;
+}
+
+img {
+  display:grid;
+  width: auto;
+  padding-left: 5%;
+  float: left;
+  height: 60px;
+}
