@@ -1,10 +1,10 @@
 import React from "react";
 import styles from '../content.module.css'
 
-function Link4() {
+function Link4(props) {
   return (
     <div id={styles.content}>
-      Страница 4 
+      {props.text}
     </div>
 
   );

@@ -4,10 +4,10 @@ import Links from "./links";
 
 
 let arr = [
-  { linkName: 'Главная страница', url: '/main' },
-  { linkName: 'Страница №1', url: '/link1' },
-  { linkName: 'Страница №2', url: '/link2' },
-  { linkName: 'Страница №3', url: '/link3' },
+  { linkName: 'Реестры контрактов', url: '/main' },
+  { linkName: 'Продовольственное обеспечение', url: '/link1' },
+  { linkName: 'Вещевое обеспечение', url: '/link2' },
+  { linkName: 'Обеспечение ГСМ', url: '/link3' },
   { linkName: 'Страница №4', url: '/link4' }
 ]
 
