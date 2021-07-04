@@ -4,14 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+let content = [
+  {routeName: 'Главная страница', routeUrl: '/main'},
+  {routeName: 'Страница 1', routeUrl: '/link1'},
+  {routeName: 'Страница 2',  routeUrl: '/link2'},
+  {routeName: 'Страница 3',  routeUrl: '/link3'},
+  {routeName: 'Страница 4',  routeUrl: '/link4'}
+]
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App content={content}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
