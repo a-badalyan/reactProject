@@ -12,9 +12,17 @@ let content = [
   {routeName: 'Страница 4',  routeUrl: '/link4'}
 ]
 
+let links = [
+  { linkName: 'Реестры контрактов', url: '/main' },
+  { linkName: 'Продовольственное обеспечение', url: '/link1' },
+  { linkName: 'Вещевое обеспечение', url: '/link2' },
+  { linkName: 'Обеспечение ГСМ', url: '/link3' },
+  { linkName: 'Страница №4', url: '/link4' }
+]
+
 ReactDOM.render(
   <React.StrictMode>
-    <App content={content}/>
+    <App content={content} links={links}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

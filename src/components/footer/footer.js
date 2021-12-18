@@ -4,7 +4,7 @@ import styles from './footer.module.css'
 function Footer() {
   return (
     <footer id={styles.footer}>
-      Designed by...
+      Designed by Badalyan Artem
     </footer>
 
   );
