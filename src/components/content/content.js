@@ -10,14 +10,15 @@ import Link4 from "./Links/Link4";
 
 
 function Content(props) {
-    
+
+
     return (
         <div id={styles.content}>
-            <Route path={props.content[0].routeUrl} render = {() => <Main text={props.content[0].routeName} />} />
-            <Route path={props.content[1].routeUrl} render = {() => <Link1 text={props.content[1].routeName} />} />
-            <Route path={props.content[2].routeUrl} render = {() => <Link2 text={props.content[2].routeName} />} />
-            <Route path={props.content[3].routeUrl} render = {() => <Link3 text={props.content[3].routeName} />} />
-            <Route path={props.content[4].routeUrl} render = {() => <Link4 text={props.content[4].routeName} />} />
+            <Route path={props.content[0].url} render={() => <Main text={props.content[0].routeName} contractData={props.contractData} addContract={props.addContract} />} />
+            <Route path={props.content[1].url} render={() => <Link1 text={props.content[1].routeName} />} />
+            <Route path={props.content[2].url} render={() => <Link2 text={props.content[2].routeName} />} />
+            <Route path={props.content[3].url} render={() => <Link3 text={props.content[3].routeName} />} />
+            <Route path={props.content[4].url} render={() => <Link4 text={props.content[4].routeName} />} />
         </div>
 
     );

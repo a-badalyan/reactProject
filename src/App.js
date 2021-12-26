@@ -7,13 +7,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 
 function App(props) {
-
   return (
     <Router>
       <div className='main'>
         <Header />
         <Nav links={props.links} />
-        <Content content={props.content}/>
+        <Content content={props.content} contractData={props.contractData} addContract={props.addContract} />
         <Footer />
       </div>
     </Router>
