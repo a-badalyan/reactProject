@@ -3,9 +3,20 @@ import React from "react";
 import Contract from "../../contract/contract";
 import styles from '../content.module.css'
 
+
 function Main(props) {
-  
 let text = react.createRef()
+
+let addContractData = () => {
+    props.addContract({ date: '26.12.2021', num: '9001', amount: '0.00', object: props.contractPage.textarea})
+    props.updateContractObject('')
+  }
+
+let contractChange = () => {
+    let bb = text.current.value;
+    props.updateContractObject(bb);
+}
+
 
   return (
     <div id={styles.content}>
@@ -13,12 +24,14 @@ let text = react.createRef()
         Реестр контрактов </div>
         <div className={styles.content}>
           {props.text}
-          <textarea ref={text} cols='50' className={styles.textarea}>
-          </textarea>
-          <button className={styles.button} onClick={ () => props.addContract({ date: '26.12.2021', num: '9001', amount: '0.00'}) }>Добавить контракт</button>          
-          <button className={styles.button}>Кнопка2</button>
+          <textarea 
+          className={styles.textarea}           
+          ref={text}
+          onChange={contractChange}  
+          value={props.contractPage.textarea}/>
+          <button className={styles.button} onClick={addContractData}>Добавить контракт</button>          
         </div>
-      <Contract contractData={props.contractData} />
+      <Contract contractPage={props.contractPage} />
     </div>
 
   );

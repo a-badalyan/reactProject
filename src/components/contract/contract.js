@@ -1,24 +1,25 @@
 import React from "react";
-
+import styles from './contract.module.css'
 
 
 function Contract(props) {
-
-    let data = props.contractData.map(el => ( 
+    let data = props.contractPage.contractData.map(el => ( 
         <tr>    
             <td>{el.date}</td>
             <td>{el.contractNum}</td>
             <td>{el.contractAmount}</td>
+            <td>{el.contractObject}</td>
         </tr>
     ))
     return (
-        <div>
-            <table id="simple-board">
+        <div id={styles.contract}>
+            <table>
                 <tbody>
-                    <tr id="row0">
-                        <td id="cell0-0">Дата контракта</td>
-                        <td id="cell0-1">Номер контракта</td>
-                        <td id="cell0-2">Цена контракта, руб</td>
+                    <tr>
+                        <td id={styles.first}>Дата контракта</td>
+                        <td>Номер контракта</td>
+                        <td>Цена контракта, руб</td>
+                        <td>Наименование объекта закупки</td> 
                     </tr>
                     {data}
                 </tbody>

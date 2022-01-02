@@ -1,4 +1,7 @@
-import { rerender } from "./render"
+let rerender = () => {
+    console.log('=========================================')
+}
+
 
 let state = {
     navPage: [
@@ -15,24 +18,41 @@ let state = {
         { routeName: 'Контент страницы 3', url: '/link3',  componentName: 'Link3' },
         { routeName: 'Контент страницы 4', url: '/link4',  componentName: 'Link4' }],
     
-    contractData: [
-        {date: '01.01.2021', contractNum: '1', contractAmount: '1000.00'},
-        {date: '15.03.2021', contractNum: '12', contractAmount: '87850.30'},
-        {date: '21.04.2021', contractNum: '04', contractAmount: '5580.00'},
-        {date: '09.04.2021', contractNum: '193', contractAmount: '15900.00'},
-        {date: '10.08.2021', contractNum: '204', contractAmount: '1200.00'},
-    ]
+    contractPage: {
+        contractData: [
+            {date: '01.01.2021', contractNum: '1', contractAmount: '1000.00', contractObject: 'Поставка продуктов питания'},
+            {date: '15.03.2021', contractNum: '12', contractAmount: '87850.30', contractObject: 'Оказание коммунальных услуг'},
+            {date: '21.04.2021', contractNum: '04', contractAmount: '5580.00', contractObject: 'Поставка офисной бумаги'},
+            {date: '09.04.2021', contractNum: '193', contractAmount: '15900.00', contractObject: 'Оказание медицинских услуг'},
+            {date: '10.08.2021', contractNum: '204', contractAmount: '1200.00', contractObject: 'Оказание услуг связи'}],
+        textarea: 'Добавить предмет поставки'
+        }
     }
   
 
 
 
-export let addContract = (data) => {
+export const addContract = (data) => {
     let newContract = {
-        date: data.date, contractNum: data.num, contractAmount: data.amount
+        date: data.date, 
+        contractNum: data.num, 
+        contractAmount: data.amount, 
+        contractObject: data.object
     }
-    state.contractData.push(newContract)
+    state.contractPage.contractData.push(newContract)
     rerender(state)
+}
+
+
+
+export const updateContractObject = (data) => {
+    state.contractPage.textarea = data
+    rerender(state)
+}
+
+
+export let subscribe = (observer) => {
+    rerender = observer;
 }
 
 
