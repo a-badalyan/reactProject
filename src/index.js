@@ -7,10 +7,9 @@ import {store} from './store'
 
 
 let rerender = () => {
-
     ReactDOM.render(
         <React.StrictMode>
-            <App state={store.getState()} addContract={store.addContract} updateContractObject={store.updateContractObject} />
+            <App state={store.getState()} dispatch={store.dispatch.bind(store)} />
         </React.StrictMode>,
         document.getElementById('root')
     );

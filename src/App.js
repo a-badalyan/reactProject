@@ -12,7 +12,7 @@ function App(props) {
       <div className='main'>
         <Header />
         <Nav links={props.state.navPage} />
-        <Content content={props.state.dataPage} contractPage={props.state.contractPage} addContract={props.addContract} updateContractObject={props.updateContractObject}/>
+        <Content content={props.state.dataPage} contractPage={props.state.contractPage} dispatch={props.dispatch}/>
         <Footer />
       </div>
     </Router>

@@ -5,17 +5,16 @@ import styles from '../content.module.css'
 
 
 function Main(props) {
-  
 let text = react.createRef()
 
 let addContractData = () => {
-    props.addContract({ date: '26.12.2021', num: '9001', amount: '0.00', object: props.contractPage.textarea})
-    props.updateContractObject('')
+    props.dispatch({ type: 'ADD-CONTRACT', object: props.contractPage.textarea})
+    props.dispatch({type: 'UPDATE-CONTRACT-OBJECT', data: ''})
   }
 
 let contractChange = () => {
-    let bb = text.current.value;
-    props.updateContractObject(bb);
+    let curValue = text.current.value;
+    props.dispatch({ type: 'UPDATE-CONTRACT-OBJECT', data: curValue});
 }
 
 

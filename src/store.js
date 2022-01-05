@@ -24,28 +24,45 @@ export let store = {
             textarea: 'Добавить предмет поставки'
             }
         },
-    rerender() {console.log('=========================================')},
+    
+    _callSub() {console.log('=========================================')},
+    
+    dispatch(action) {
+        if (action.type === 'ADD-CONTRACT') {
+            let newContract = {
+                date: '26.12.2021', 
+                contractNum: '9001', 
+                contractAmount: '05/01/2021', 
+                contractObject: action.object
+            }
+            this._state.contractPage.contractData.push(newContract)
+            this._callSub(this._state)
+        } else if (action.type === 'UPDATE-CONTRACT-OBJECT') {
+            this._state.contractPage.textarea = action.data
+            this._callSub(this._state)}
+        },
 
-    addContract(data) {
-        let newContract = {
-            date: data.date, 
-            contractNum: data.num, 
-            contractAmount: data.amount, 
-            contractObject: data.object
-        }
-        this._state.contractPage.contractData.push(newContract)
-        this.rerender(this._state)},
+    // addContract(data) {
+    //     let newContract = {
+    //         date: data.date, 
+    //         contractNum: data.num, 
+    //         contractAmount: data.amount, 
+    //         contractObject: data.object
+    //     }
+    //     this._state.contractPage.contractData.push(newContract)
+    //     this._callSub(this._state)
+    // },
 
-    updateContractObject (data) {
-        this._state.contractPage.textarea = this.data
-        this.rerender(this._state)},
+    // updateContractObject (data) {
+    //     this._state.contractPage.textarea = data
+    //     this._callSub(this._state)},
     
     subscribe (observer) {
-        return this.rerender = observer;
+        return this._callSub = observer;
     },
 
     getState () {
         return this._state
-    },
-    
+    }
+
 }
