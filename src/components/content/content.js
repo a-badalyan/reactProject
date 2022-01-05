@@ -10,8 +10,7 @@ import Link4 from "./Links/Link4";
 
 
 function Content(props) {
-
-
+    
     return (
         <div id={styles.content}>
             <Route path={props.content[0].url} render={() => <Main text={props.content[0].routeName} contractPage={props.contractPage} addContract={props.addContract} updateContractObject={props.updateContractObject}/>} />

@@ -5,6 +5,7 @@ import styles from '../content.module.css'
 
 
 function Main(props) {
+  
 let text = react.createRef()
 
 let addContractData = () => {

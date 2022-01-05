@@ -11,8 +11,8 @@ function App(props) {
     <Router>
       <div className='main'>
         <Header />
-        <Nav links={props.links} />
-        <Content content={props.content} contractPage={props.contractPage} addContract={props.addContract} updateContractObject={props.updateContractObject}/>
+        <Nav links={props.state.navPage} />
+        <Content content={props.state.dataPage} contractPage={props.state.contractPage} addContract={props.addContract} updateContractObject={props.updateContractObject}/>
         <Footer />
       </div>
     </Router>
