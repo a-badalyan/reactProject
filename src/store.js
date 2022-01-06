@@ -21,7 +21,7 @@ export let store = {
                 {date: '21.04.2021', contractNum: '04', contractAmount: '5580.00', contractObject: 'Поставка офисной бумаги'},
                 {date: '09.04.2021', contractNum: '193', contractAmount: '15900.00', contractObject: 'Оказание медицинских услуг'},
                 {date: '10.08.2021', contractNum: '204', contractAmount: '1200.00', contractObject: 'Оказание услуг связи'}],
-            textarea: 'Добавить предмет поставки'
+            newContractData: {date: '2022.01.01', contractNum: 'Введите номер контракта', contractAmount: '0.00', contractObject: 'Введите предмет контракта'}
             }
         },
     
@@ -30,32 +30,20 @@ export let store = {
     dispatch(action) {
         if (action.type === 'ADD-CONTRACT') {
             let newContract = {
-                date: '26.12.2021', 
-                contractNum: '9001', 
-                contractAmount: '05/01/2021', 
-                contractObject: action.object
+                date: action.date, 
+                contractNum: action.num, 
+                contractAmount: action.sum, 
+                contractObject: action.obj
             }
             this._state.contractPage.contractData.push(newContract)
             this._callSub(this._state)
-        } else if (action.type === 'UPDATE-CONTRACT-OBJECT') {
-            this._state.contractPage.textarea = action.data
+        } else if (action.type === 'UPDATE-CONTRACT-DATA') {
+            this._state.contractPage.newContractData.date = action.data.date
+            this._state.contractPage.newContractData.contractNum = action.data.num
+            this._state.contractPage.newContractData.contractAmount = action.data.sum
+            this._state.contractPage.newContractData.contractObject = action.data.obj
             this._callSub(this._state)}
         },
-
-    // addContract(data) {
-    //     let newContract = {
-    //         date: data.date, 
-    //         contractNum: data.num, 
-    //         contractAmount: data.amount, 
-    //         contractObject: data.object
-    //     }
-    //     this._state.contractPage.contractData.push(newContract)
-    //     this._callSub(this._state)
-    // },
-
-    // updateContractObject (data) {
-    //     this._state.contractPage.textarea = data
-    //     this._callSub(this._state)},
     
     subscribe (observer) {
         return this._callSub = observer;
@@ -66,3 +54,16 @@ export let store = {
     }
 
 }
+
+export const createAddContractActionCreator = (data) => ({
+    type: 'ADD-CONTRACT', 
+    obj: data.contractObject, 
+    sum: data.contractAmount, 
+    num: data.contractNum, 
+    date: data.date
+})
+
+export const updateContractObject = () => ({
+    type: 'UPDATE-CONTRACT-DATA', 
+    data: {date: '', sum: '', num: '', obj: ''}
+})

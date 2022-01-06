@@ -13,7 +13,7 @@ function Content(props) {
 
     return (
         <div id={styles.content}>
-            <Route path={props.content[0].url} render={() => <Main text={props.content[0].routeName} contractPage={props.contractPage} dispatch={props.dispatch}/>} />
+            <Route path={props.content[0].url} render={() => <Main contractPage={props.contractPage} dispatch={props.dispatch}/>} />
             <Route path={props.content[1].url} render={() => <Link1 text={props.content[1].routeName} />} />
             <Route path={props.content[2].url} render={() => <Link2 text={props.content[2].routeName} />} />
             <Route path={props.content[3].url} render={() => <Link3 text={props.content[3].routeName} />} />
